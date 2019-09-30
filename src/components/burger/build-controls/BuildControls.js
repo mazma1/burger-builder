@@ -5,19 +5,21 @@ import styles from 'components/burger/build-controls/BuildControls.module.css';
 
 
 const controls = [
-  { label: 'Meat', type: 'mear' },
+  { label: 'Meat', type: 'meat' },
   { label: 'Salad', type: 'salad' },
   { label: 'Bacon', type: 'bacon' },
   { label: 'Cheese', type: 'cheese' },
 ];
 
-const BuildControls = () => (
+const BuildControls = (props) => (
   <div className={styles.container}>
     { controls.map( control => (
       <BuildControl 
         key={control.label}
-        type={control.type}
-        ingredient={control.label} 
+        ingredient={control.label}
+        disabled={props.disabled[control.type]}
+        addIngredient={() => props.addIngredient(control.type)}
+        removeIngredient={() => props.removeIngredient(control.type)}
       />
     ))}
   </div>
