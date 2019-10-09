@@ -1,3 +1,4 @@
 .content {
   margin-top: 1rem;
+  height: calc(100vh - 1rem);
 }
